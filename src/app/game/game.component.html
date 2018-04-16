@@ -1,0 +1,19 @@
+<div class="container">
+  <div>
+    <ol>
+      <li *ngFor="let item of gameArr; index as index">
+        {{item['word']}}
+        <button (click)="onDescription(index)">Description</button>
+      </li>
+    </ol>
+  </div>
+  <div *ngIf="index >=0">
+    <div> {{gameArr[index]['word']}} </div>
+    <div>
+      <textarea></textarea>
+    </div>
+  </div>
+</div>
+
+<button routerLink="/home">Home</button>
+<button routerLink="/choose-game">Back</button>

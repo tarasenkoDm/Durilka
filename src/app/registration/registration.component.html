@@ -1,0 +1,33 @@
+<form
+  *ngIf="myRegForm"
+  [formGroup]="myRegForm"
+  (submit)="onRegSubmit()"
+>
+  <div>
+    <label> E-mail: </label>
+    <input type="email" formControlName="email">
+    <span *ngIf="!myRegForm.get('email').valid">*E-mail incorrect</span>
+    <span *ngIf="!myRegForm.get('email').touched">*E-mail required</span>
+  </div>
+  <div>
+    <label> E-mail for check: </label>
+    <input type="email" formControlName="emailForCheck">
+    <span *ngIf="!myRegForm.get('emailForCheck').valid">*E-mail incorrect</span>
+    <span *ngIf="!myRegForm.get('emailForCheck').touched">*E-mail required</span>
+  </div>
+  <div>
+    <label> Password: </label>
+    <input type="password" formControlName="password">
+    <span *ngIf="!myRegForm.get('password').valid">*Password incorrect</span>
+    <span *ngIf="!myRegForm.get('password').touched">*Password required</span>
+  </div>
+  <div>
+    <label> Password for check: </label>
+    <input type="password" formControlName="passwordForCheck">
+    <span *ngIf="!myRegForm.get('passwordForCheck').valid">*Password incorrect</span>
+    <span *ngIf="!myRegForm.get('passwordForCheck').touched">*Password required</span>
+  </div>
+  <button type="submit">Registration</button>
+</form>
+
+<button routerLink="/home">go home</button>

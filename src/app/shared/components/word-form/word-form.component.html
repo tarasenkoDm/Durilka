@@ -1,0 +1,18 @@
+<div>
+  <form
+    *ngIf="myNewWordForm"
+    [formGroup]="myNewWordForm"
+    (submit)="onSubmit()"
+  >
+    <div>
+      <label>Word: </label><br/>
+      <input formControlName="word" type="text" value="{{myNewWordForm.value.word}}">
+    </div>
+    <div>
+      <label>Description: </label><br/>
+      <textarea formControlName="description"></textarea>
+    </div>
+    <button type="submit" [disabled]="!myNewWordForm.valid">Save</button>
+    <button type="button" (click)="onCancel()" [disabled]="!myNewWordForm.valid">Cancel</button>
+  </form>
+</div>

@@ -1,0 +1,12 @@
+<div class="container">
+  <form
+    *ngIf="myJoinForm"
+    [formGroup]="myJoinForm"
+    (submit)="onJoin()"
+  >
+    <label>Enter game id:</label>
+    <input formControlName="gameId" type="text">
+    <button [disabled]="!myJoinForm.valid" type="submit">Join</button>
+  </form>
+</div>
+<button routerLink="/choose-role">Back</button>

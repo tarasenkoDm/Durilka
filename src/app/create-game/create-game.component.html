@@ -1,0 +1,27 @@
+<div *ngIf="wordsArr.length < 1">Add new word</div>
+<div *ngIf="wordsArr.length >= 1">Your words:</div>
+
+<div class="container">
+
+  <ol>
+    <li *ngFor="let item of wordsArr; index as index">
+
+      {{item['word']}} - {{item['description']}}
+
+      <button (click)="onEdit(index)">Edit</button>
+      <button (click)="onDelete(index)">Delete</button>
+    </li>
+  </ol>
+
+  <div>
+    <app-word-form
+      [dataForEdit]="dataForEdit"
+      (canceledWordForm)="onCancelWordForm()"
+      (changeWordForm)="onChangeWordForm($event)">
+    </app-word-form>
+  </div>
+</div>
+<div>
+  <button routerLink="/choose-role"> Back</button>
+  <button [disabled]="wordsArr.length < 1" (click)="onFinish()">Finish</button>
+</div>
