@@ -4,10 +4,13 @@
     [formGroup]="myNewWordForm"
     (submit)="onSubmit()"
   >
-    <div>
+    <div *ngIf="!joinGame">
       <label *ngIf="editInPro">Word: </label>
       <label *ngIf="!editInPro">Add new word: </label><br/>
       <input formControlName="word" type="text" value="{{myNewWordForm.value.word}}">
+    </div>
+    <div *ngIf="joinGame">
+      {{myNewWordForm.value.word}}
     </div>
     <div>
       <label>Description: </label><br/>

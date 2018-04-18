@@ -31,7 +31,9 @@ export class DataItemComponent implements OnInit, OnChanges {
     if (changes.data) {
       this.dataItem = changes.data.currentValue;
     }
-    this.itemIndex = changes.index.currentValue;
+    if (changes.index) {
+      this.itemIndex = changes.index.currentValue;
+    }
   }
 
   onEdit() {
@@ -50,9 +52,14 @@ export class DataItemComponent implements OnInit, OnChanges {
     this.edit.emit(data);
     this.editItem = !this.editItem;
     this.editInProcess.emit(false);
+    console.log(data);
   }
 
   onStopEdit() {
+    this.onEdit();
+  }
+
+  onDescription() {
     this.onEdit();
   }
 }

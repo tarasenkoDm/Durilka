@@ -11,6 +11,7 @@ export class WordFormComponent implements OnInit, OnChanges {
   @Input() dataForEdit: Object;
   @Input() clearForm: boolean;
   @Input() editInProcess: boolean;
+  @Input() joinGame: boolean;
   @Output() changeWordForm = new EventEmitter<Object>();
   @Output() stopEdit = new EventEmitter();
 
@@ -53,7 +54,11 @@ export class WordFormComponent implements OnInit, OnChanges {
   }
 
   onClear() {
-    this.initForm();
+    if (this.joinGame) {
+      this.initForm({word: this.dataForEdit['word']});
+    } else {
+      this.initForm();
+    }
   }
 
   onClose() {

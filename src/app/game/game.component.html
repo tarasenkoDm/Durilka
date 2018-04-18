@@ -1,19 +1,21 @@
+<h1>Please, give your descriptions!</h1>
+
 <div class="container">
   <div>
     <ol>
-      <li *ngFor="let item of gameArr; index as index">
-        {{item['word']}}
-        <button (click)="onDescription(index)">Description</button>
-      </li>
+
+      <app-data-item
+        *ngFor="let item of gameArr; index as index"
+        [data]="item"
+        [joinGame]="joinGame"
+        [index]="index"
+        (edit)="onEdit($event)"
+      ></app-data-item>
+
     </ol>
-  </div>
-  <div *ngIf="index >=0">
-    <div> {{gameArr[index]['word']}} </div>
-    <div>
-      <textarea></textarea>
-    </div>
   </div>
 </div>
 
 <button routerLink="/home">Home</button>
 <button routerLink="/choose-game">Back</button>
+<button type="button" (click)="finish()">Finish</button>

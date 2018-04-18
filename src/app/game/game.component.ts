@@ -1,21 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-@Component( {
+@Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss']
-} )
+})
 export class GameComponent implements OnInit {
 
-  index: number = -1;
+  joinGame = true;
 
   gameArr: object[] = [
-    {word: 'first', description: 'des1'},
-    {word: 'second', description: 'des2'},
-    {word: 'third', description: 'des3'},
-    {word: 'fourth', description: 'des4'},
-    {word: 'fives', description: 'des5'},
+    {word: 'first'},
+    {word: 'second'},
+    {word: 'third'},
+    {word: 'fourth'},
+    {word: 'fives'},
   ];
+
+  // gameArr: object[] = [
+  //   {word: 'first', description: 'des1'},
+  //   {word: 'second', description: 'des2'},
+  //   {word: 'third', description: 'des3'},
+  //   {word: 'fourth', description: 'des4'},
+  //   {word: 'fives', description: 'des5'},
+  // ];
 
   constructor() {
   }
@@ -23,10 +31,13 @@ export class GameComponent implements OnInit {
   ngOnInit() {
   }
 
-  onDescription( index ) {
-    console.log( index );
-    this.index = index;
+  onEdit(data: object) {
+    console.log(data);
+    this.gameArr[data['index']] = data;
+  }
 
+  finish() {
+    console.log(this.gameArr);
   }
 
 }
