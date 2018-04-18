@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { WordFormComponent } from './components/word-form/word-form.component';
+import { DataItemComponent } from './components/data-item/data-item.component';
 
 @NgModule({
   imports: [
@@ -12,10 +13,12 @@ import { WordFormComponent } from './components/word-form/word-form.component';
     ReactiveFormsModule
   ],
   declarations: [
-    WordFormComponent
+    WordFormComponent,
+    DataItemComponent
   ],
   exports: [
-    WordFormComponent
+    WordFormComponent,
+    DataItemComponent
   ]
 })
 export class SharedModule { }

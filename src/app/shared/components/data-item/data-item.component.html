@@ -1,0 +1,19 @@
+<li>
+  <span>{{dataItem['word']}}</span> <span> - {{dataItem['description']}}</span>
+  <div *ngIf="createGame">
+    <button [disabled]="editItem" (click)="onEdit()">Edit</button>
+    <button [disabled]="editItem" (click)="onDelete()">Delete</button>
+  </div>
+  <div *ngIf="joinGame">
+    <button (click)="onDescription()">Description</button>
+  </div>
+
+  <app-word-form
+    *ngIf="editItem"
+    [dataForEdit]="dataItem"
+    [editInProcess]="editInPro"
+    (changeWordForm)="onChangeWordForm($event)"
+    (stopEdit)="onStopEdit()"
+  >
+  </app-word-form>
+</li>

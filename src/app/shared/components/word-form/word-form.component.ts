@@ -1,35 +1,46 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
-@Component( {
+@Component({
   selector: 'app-word-form',
   templateUrl: './word-form.component.html',
   styleUrls: ['./word-form.component.scss']
-} )
+})
 export class WordFormComponent implements OnInit, OnChanges {
 
   @Input() dataForEdit: Object;
+  @Input() clearForm: boolean;
+  @Input() editInProcess: boolean;
   @Output() changeWordForm = new EventEmitter<Object>();
-  @Output() canceledWordForm = new EventEmitter();
+  @Output() stopEdit = new EventEmitter();
 
   myNewWordForm: FormGroup;
+  editInPro: boolean;
 
-  constructor( private fb: FormBuilder ) {
+  constructor(private fb: FormBuilder) {
   }
 
   ngOnInit() {
-    this.initForm( this.dataForEdit || null );
+    this.initForm(this.dataForEdit || null);
   }
 
-  ngOnChanges( changes: SimpleChanges ) {
-    this.initForm( changes.dataForEdit.currentValue );
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.dataForEdit) {
+      this.initForm(changes.dataForEdit.currentValue);
+    }
+    if (changes.clearForm && changes.clearForm.currentValue) {
+      this.initForm();
+    }
+    if (changes.editInProcess) {
+      this.editInPro = changes.editInProcess.currentValue;
+    }
   }
 
-  initForm( dataForEdit? ) {
-    this.myNewWordForm = this.fb.group( {
+  initForm(dataForEdit?) {
+    this.myNewWordForm = this.fb.group({
       'word': [dataForEdit ? dataForEdit['word'] : null, Validators.required],
       'description': [dataForEdit ? dataForEdit['description'] : null, Validators.required]
-    } );
+    });
   }
 
   onSubmit() {
@@ -37,13 +48,15 @@ export class WordFormComponent implements OnInit, OnChanges {
       word: this.myNewWordForm.value.word,
       description: this.myNewWordForm.value.description
     };
-
-    this.changeWordForm.emit( formEvent );
+    this.changeWordForm.emit(formEvent);
     this.initForm();
   }
 
-  onCancel() {
+  onClear() {
     this.initForm();
-    this.canceledWordForm.emit();
+  }
+
+  onClose() {
+    this.stopEdit.emit();
   }
 }

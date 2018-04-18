@@ -5,14 +5,18 @@
     (submit)="onSubmit()"
   >
     <div>
-      <label>Word: </label><br/>
+      <label *ngIf="editInPro">Word: </label>
+      <label *ngIf="!editInPro">Add new word: </label><br/>
       <input formControlName="word" type="text" value="{{myNewWordForm.value.word}}">
     </div>
     <div>
       <label>Description: </label><br/>
       <textarea formControlName="description"></textarea>
     </div>
-    <button type="submit" [disabled]="!myNewWordForm.valid">Save</button>
-    <button type="button" (click)="onCancel()" [disabled]="!myNewWordForm.valid">Cancel</button>
+    <div>
+      <button type="submit" [disabled]="!myNewWordForm.valid">Save</button>
+      <button type="button" (click)="onClear()" [disabled]="!myNewWordForm.valid">Clear</button>
+      <button *ngIf="editInPro" type="button" (click)="onClose()">Close</button>
+    </div>
   </form>
 </div>

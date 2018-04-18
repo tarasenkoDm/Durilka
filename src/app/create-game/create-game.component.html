@@ -4,19 +4,20 @@
 <div class="container">
 
   <ol>
-    <li *ngFor="let item of wordsArr; index as index">
-
-      {{item['word']}} - {{item['description']}}
-
-      <button (click)="onEdit(index)">Edit</button>
-      <button (click)="onDelete(index)">Delete</button>
-    </li>
+    <app-data-item
+      *ngFor="let item of wordsArr; index as index"
+      [data]="item"
+      [index]="index"
+      [createGame]="createGame"
+      (editInProcess)="onEditInProcess($event)"
+      (edit)="onEdit($event)"
+      (delete)="onDelete($event)"
+    ></app-data-item>
   </ol>
 
-  <div>
+  <div *ngIf="!editInProcess ">
     <app-word-form
-      [dataForEdit]="dataForEdit"
-      (canceledWordForm)="onCancelWordForm()"
+      [clearForm]="clearForm"
       (changeWordForm)="onChangeWordForm($event)">
     </app-word-form>
   </div>

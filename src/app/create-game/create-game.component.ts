@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-@Component( {
+@Component({
   selector: 'app-create-game',
   templateUrl: './create-game.component.html',
   styleUrls: ['./create-game.component.scss']
-} )
+})
 export class CreateGameComponent implements OnInit {
 
-  wordsArr: object[] = [];
-  index = -1;
-  dataForEdit: Object = null;
+  wordsArr: object[] = [{word: 'one', description: 'one'}, {word: 'two', description: 'two'}, {word: 'three', description: 'three'}];
+  createGame = true;
+  clearForm = false;
+  editInProcess: boolean = false;
 
   constructor() {
   }
@@ -17,30 +18,24 @@ export class CreateGameComponent implements OnInit {
   ngOnInit() {
   }
 
-  onEdit( index ) {
-    this.index = index;
-    this.dataForEdit = this.wordsArr[index];
+  onEdit(data: object) {
+    this.wordsArr[data['index']] = data;
   }
 
-  onCancelWordForm() {
-    this.index = -1;
-  }
-
-  onDelete( index ) {
-    this.wordsArr.splice( index, 1 );
+  onDelete(data: object) {
+    this.wordsArr.splice(data['index'], 1);
   }
 
   onFinish() {
-    console.log( this.wordsArr );
+    console.log(this.wordsArr);
   }
 
-  onChangeWordForm( data: Object ) {
-    if (this.index >= 0) {
-      this.wordsArr[this.index] = data;
-      this.index = -1;
-    } else {
-      this.wordsArr.push( data );
-    }
+  onChangeWordForm(data: object) {
+      this.wordsArr.push(data);
+  }
+
+  onEditInProcess(isInProcess: boolean) {
+    this.editInProcess = isInProcess;
   }
 
 }
