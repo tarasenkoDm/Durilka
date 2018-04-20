@@ -20,6 +20,7 @@ export class DataItemComponent implements OnInit, OnChanges {
   itemIndex: number;
   editItem: boolean;
   editInPro: boolean;
+  descriptionActive: boolean = false;
 
   constructor(private fb: FormBuilder) {
   }
@@ -57,9 +58,11 @@ export class DataItemComponent implements OnInit, OnChanges {
 
   onStopEdit() {
     this.onEdit();
+    this.descriptionActive = false;
   }
 
   onDescription() {
     this.onEdit();
+    this.descriptionActive = true;
   }
 }

@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {CreateGameService} from './create-game.service';
 
 @Component({
   selector: 'app-create-game',
@@ -12,7 +13,7 @@ export class CreateGameComponent implements OnInit {
   clearForm = false;
   editInProcess: boolean = false;
 
-  constructor() {
+  constructor(private createGameService: CreateGameService) {
   }
 
   ngOnInit() {

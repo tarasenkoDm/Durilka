@@ -9,11 +9,8 @@
       <label *ngIf="!editInPro">Add new word: </label><br/>
       <input formControlName="word" type="text" value="{{myNewWordForm.value.word}}">
     </div>
-    <div *ngIf="joinGame">
-      {{myNewWordForm.value.word}}
-    </div>
     <div>
-      <label>Description: </label><br/>
+      <label *ngIf="!joinGame">Description: </label><br/>
       <textarea formControlName="description"></textarea>
     </div>
     <div>

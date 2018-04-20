@@ -4,7 +4,7 @@
     <button [disabled]="editItem" (click)="onEdit()">Edit</button>
     <button [disabled]="editItem" (click)="onDelete()">Delete</button>
   </div>
-  <div *ngIf="joinGame">
+  <div *ngIf="joinGame && !descriptionActive">
     <button (click)="onDescription()">Description</button>
   </div>
 

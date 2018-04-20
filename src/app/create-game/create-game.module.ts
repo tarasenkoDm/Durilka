@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { CreateGameComponent } from './create-game.component';
 import { SharedModule } from '../shared/shared.module';
+import {CreateGameService} from './create-game.service';
 
 @NgModule({
   imports: [
@@ -12,6 +13,6 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule
   ],
   declarations: [CreateGameComponent],
-  providers: []
+  providers: [CreateGameService]
 })
 export class CreateGameModule { }
