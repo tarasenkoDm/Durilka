@@ -14,9 +14,9 @@
       <textarea formControlName="description"></textarea>
     </div>
     <div>
-      <button type="submit" [disabled]="!myNewWordForm.valid">Save</button>
-      <button type="button" (click)="onClear()" [disabled]="!myNewWordForm.valid">Clear</button>
-      <button *ngIf="editInPro" type="button" (click)="onClose()">Close</button>
+      <button class="btn btn-success" type="submit" [disabled]="!myNewWordForm.valid">Save</button>
+      <button class="btn btn-warning" type="button" (click)="onClear()" [disabled]="!myNewWordForm.valid">Clear</button>
+      <button class="btn btn-danger" *ngIf="editInPro" type="button" (click)="onClose()">Close</button>
     </div>
   </form>
 </div>

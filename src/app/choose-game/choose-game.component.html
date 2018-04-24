@@ -6,7 +6,7 @@
   >
     <label>Enter game id:</label>
     <input formControlName="gameId" type="text">
-    <button [disabled]="!myJoinForm.valid" type="submit">Join</button>
+    <button class="btn btn-success" [disabled]="!myJoinForm.valid" type="submit">Join</button>
   </form>
 </div>
-<button routerLink="/choose-role">Back</button>
+<button class="btn btn-primary" routerLink="/choose-role">Back</button>

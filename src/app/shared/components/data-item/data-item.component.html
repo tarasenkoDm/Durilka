@@ -1,11 +1,11 @@
 <li>
   <span>{{dataItem['word']}}</span> <span> - {{dataItem['description']}}</span>
   <div *ngIf="createGame">
-    <button [disabled]="editItem" (click)="onEdit()">Edit</button>
-    <button [disabled]="editItem" (click)="onDelete()">Delete</button>
+    <button class="btn btn-primary" [disabled]="editItem" (click)="onEdit()">Edit</button>
+    <button class="btn btn-danger" [disabled]="editItem" (click)="onDelete()">Delete</button>
   </div>
   <div *ngIf="joinGame && !descriptionActive">
-    <button (click)="onDescription()">Description</button>
+    <button class="btn btn-primary" (click)="onDescription()">Description</button>
   </div>
 
   <app-word-form

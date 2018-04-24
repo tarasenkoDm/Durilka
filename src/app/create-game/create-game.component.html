@@ -23,6 +23,6 @@
   </div>
 </div>
 <div>
-  <button routerLink="/choose-role"> Back</button>
-  <button [disabled]="wordsArr.length < 1" (click)="onFinish()">Finish</button>
+  <button class="btn btn-primary" routerLink="/choose-role"> Back</button>
+  <button class="btn btn-success" [disabled]="wordsArr.length < 1" (click)="onFinish()">Finish</button>
 </div>
