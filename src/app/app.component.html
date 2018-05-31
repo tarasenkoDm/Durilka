@@ -1,2 +1,17 @@
+<div class="alert-wrapper">
+  <alert *ngFor="let alert of alerts" [type]="alert.type" dismissOnTimeout="5000" class="text-center">
+    {{alert.text}}
+  </alert>
+</div>
+
+<app-nav></app-nav>
 <router-outlet></router-outlet>
 
+<!--<div *ngIf="afAuth.authState | async as user; else showLogin">-->
+  <!--<h1>Hello {{ user.displayName }}!</h1>-->
+  <!--<button class="btn" (click)="logout()">Logout</button>-->
+<!--</div>-->
+<!--<ng-template #showLogin>-->
+  <!--<p>Please login.</p>-->
+  <!--<button class="btn" (click)="login()">Login with Google</button>-->
+<!--</ng-template>-->

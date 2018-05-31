@@ -12,12 +12,14 @@ import { ChooseRoleComponent } from '../choose-role/choose-role.component';
 import { CreateGameComponent } from '../create-game/create-game.component';
 import { GameComponent } from '../game/game.component';
 import { ChooseGameComponent } from '../choose-game/choose-game.component';
+import {LoginComponent} from '../login/login.component';
+import {SignupComponent} from '../signup/signup.component';
 
 const routes: Routes = [
 
   {
     path: '', component: MainComponent, children: [
-      {path: '', redirectTo: 'home', pathMatch: 'full'},
+      {path: '', redirectTo: 'login', pathMatch: 'full'},
       // { path: '', redirectTo: 'productList/cobalt', pathMatch: 'full' },
       {path: 'home', component: HomeComponent},
       {path: 'game/:id', component: GameComponent},
@@ -26,7 +28,10 @@ const routes: Routes = [
       {path: 'forgot-password', component: ForgotPasswordComponent},
       {path: 'choose-role', component: ChooseRoleComponent},
       {path: 'create-game', component: CreateGameComponent},
-      {path: 'choose-game', component: ChooseGameComponent}
+      {path: 'choose-game', component: ChooseGameComponent},
+      {path: 'login', component: LoginComponent},
+      {path: 'signup', component: SignupComponent},
+
     ]
   },
 

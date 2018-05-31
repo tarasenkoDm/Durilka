@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { WordFormComponent } from './components/word-form/word-form.component';
 import { DataItemComponent } from './components/data-item/data-item.component';
+import { NavComponent } from './components/nav/nav.component';
 
 @NgModule({
   imports: [
@@ -14,11 +15,13 @@ import { DataItemComponent } from './components/data-item/data-item.component';
   ],
   declarations: [
     WordFormComponent,
-    DataItemComponent
+    DataItemComponent,
+    NavComponent
   ],
   exports: [
     WordFormComponent,
-    DataItemComponent
+    DataItemComponent,
+    NavComponent
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="form-wrapper text-center">
+    <h2 class="text-center">Sign up</h2>
+    <form
+      *ngIf="signupForm"
+      [formGroup]="signupForm"
+      novalidate
+      (submit)="onSubmit()"
+    >
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Nick-name"
+          formControlName="nickName">
+      </div>
+      <div class="form-group">
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Enter your E-mail"
+          formControlName="email">
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Enter your password"
+          formControlName="password">
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!signupForm.valid">Submit</button>
+    </form>
+    <small><a routerLink="/login">Already have an Account?</a></small>
+  </div>
+</div>
+
